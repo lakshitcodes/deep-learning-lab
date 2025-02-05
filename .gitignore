@@ -34,7 +34,6 @@ checkpoints/
 
 # Data files
 *.csv
-*.h5
 *.npy
 *.npz
 
