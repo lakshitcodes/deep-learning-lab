@@ -40,7 +40,4 @@ Additionally, we compared the performance of our best CNN model with a pretraine
 - Experimenting with different activation functions, weight initialization, and optimizers
 - Fine-tuning models and comparing with pretrained networks like ResNet-18
 
-## Folder Structure
-
-The repository is organized as follows:
 
