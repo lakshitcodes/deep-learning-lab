@@ -2,6 +2,12 @@
 
 This repository contains the code for the experiments conducted in the Deep Learning Lab. The objective of these experiments is to explore different aspects of neural networks, including model architectures, activation functions, weight initialization techniques, and optimizers. Below is a brief overview of each experiment:
 
+## Table of Contents
+- [Experiment 1: MNIST Classification Model using only Numpy and Python](#experiment-1-mnist-classification-model-using-only-numpy-and-python)
+- [Experiment 2: Neural Network for Linearly Separable Datasets](#experiment-2-neural-network-for-linearly-separable-datasets)
+- [Experiment 3: Convolutional Neural Networks (CNNs) for Image Classification](#experiment-3-convolutional-neural-networks-cnns-for-image-classification)
+- [Experiment 4: Recurrent Neural Networks (RNNs) for Text Generation](#experiment-4-recurrent-neural-networks-rnns-for-text-generation)
+
 ## Experiment 1: MNIST Classification Model using only Numpy and Python
 
 **Objective**:  
@@ -40,4 +46,19 @@ Additionally, we compared the performance of our best CNN model with a pretraine
 - Experimenting with different activation functions, weight initialization, and optimizers
 - Fine-tuning models and comparing with pretrained networks like ResNet-18
 
+## Experiment 4: Recurrent Neural Networks (RNNs) for Text Generation
+
+**Objective**:  
+In this experiment, we implemented **Recurrent Neural Networks (RNNs)** using LSTM layers to generate text based on a given corpus of poems. We explored the following:
+1. Text tokenization and normalization techniques
+2. One-hot encoding for sequence modeling
+3. Training a deep learning model with different hyperparameters
+
+Additionally, we evaluated the model's ability to generate coherent text sequences and experimented with different sampling strategies for text generation.
+
+**Key Concepts**:
+- Preprocessing text data for sequence modeling
+- Training an LSTM-based text generation model
+- Experimenting with different hyperparameters
+- Evaluating model performance and generating text samples
 
