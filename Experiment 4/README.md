@@ -1,55 +1,104 @@
-# Experiment-4: Poetry Generation using RNN
+# Poetry Generation using RNNs
 
 ## Objective
-To generate poetry using a Recurrent Neural Network (RNN) trained on a dataset of poems. The model is implemented using TensorFlow and Keras, utilizing LSTM layers for sequence prediction.
+The goal of this experiment is to generate poetry using Recurrent Neural Networks (RNNs) and evaluate the impact of different word representations:
+
+1. **One-Hot Encoding with RNN**
+2. **Trainable Word Embeddings with RNN**
+3. **One-Hot Encoding with LSTM**
+4. **Trainable Word Embeddings with LSTM**
 
 ## Dataset
 - **Source:** A dataset of 100 poems stored in `poems-100.csv`.
 - **Preprocessing:**
-  - Text normalization: converting to lowercase, removing newlines.
-  - Tokenization using `RegexpTokenizer`.
-  - Stopword removal (if necessary).
-  - Encoding words into one-hot vectors.
+  - Converting text to lowercase and removing special characters.
+  - Tokenizing words and creating a vocabulary.
+  - Encoding words using either **one-hot encoding** or **word embeddings**.
 
-## Model Architecture
-- **Input Layer:** Sequence of one-hot encoded words.
-- **LSTM Layers:**
-  - First LSTM layer with 256 units and `return_sequences=True`.
-  - Second LSTM layer with 128 units.
-- **Dense Layer:** Output layer with softmax activation for word prediction.
-- **Optimizer:** Adam.
-- **Loss Function:** Categorical Crossentropy.
-- **Evaluation Metric:** Accuracy.
+## Models Implemented
 
-## Training
-- **Epochs:** 100
-- **Batch Size:** 64
-- **Performance Metrics:**
-  - Final training accuracy: **96.50%**
-  - Final training loss: **0.1620**
+### 1. RNN with One-Hot Encoding
+- **Input Representation:** One-hot encoded word sequences.
+- **Architecture:**
+  - Simple RNN layer with 16 hidden units.
+  - Fully connected output layer with softmax activation.
+- **Optimizer:** Adam
+- **Loss Function:** Categorical Crossentropy
+- **Training Epochs:** 500
+- **Performance:**
+  - Final accuracy: **59.07%**
+  - Final loss: **1.9682**
+- **Model Weights:** `rnn_one_hot_weights.pth`
 
-## Results
-A plot of training loss and accuracy over epochs was generated for visualization.
+### 2. RNN with Trainable Word Embeddings
+- **Input Representation:** Trainable word embeddings.
+- **Architecture:**
+  - Embedding layer (16-dimensional vectors per word).
+  - Simple RNN layer with 16 hidden units.
+  - Fully connected output layer with softmax activation.
+- **Optimizer:** Adam
+- **Loss Function:** Categorical Crossentropy
+- **Training Epochs:** 500
+- **Performance:**
+  - Final accuracy: **40.16%**
+  - Final loss: **2.9645**
+- **Model Weights:** `rnn_embeddings_weights.pth`
+
+### 3. LSTM with One-Hot Encoding
+- **Input Representation:** One-hot encoded word sequences.
+- **Architecture:**
+  - LSTM layer with 16 hidden units.
+  - Fully connected output layer with softmax activation.
+- **Optimizer:** Adam
+- **Loss Function:** Categorical Crossentropy
+- **Training Epochs:** 500
+- **Performance:**
+  - Final accuracy: **66.67%**
+  - Final loss: **1.5968**
+- **Model Weights:** `lstm_one_hot_weights.pth`
+
+### 4. LSTM with Trainable Word Embeddings
+- **Input Representation:** Trainable word embeddings.
+- **Architecture:**
+  - Embedding layer (16-dimensional vectors per word).
+  - LSTM layer with 16 hidden units.
+  - Fully connected output layer with softmax activation.
+- **Optimizer:** Adam
+- **Loss Function:** Categorical Crossentropy
+- **Training Epochs:** 500
+- **Performance:**
+  - Final accuracy: **49.03%**
+  - Final loss: **2.5610**
+- **Model Weights:** `lstm_embeddings_weights.pth`
+
+## Training Results
+A comparison of training loss and accuracy over epochs was visualized for all models.
 
 ## Text Generation
-- **Prediction Function:** Predicts the next word based on a given sequence.
-- **Text Generator:** Generates poetry by iteratively predicting and appending words.
-- **Creativity Parameter:** Controls randomness in word selection.
+- **Prediction Function:** Predicts the next word given a seed sequence.
+- **Text Generator:** Generates poetry-like text iteratively.
+- **Creativity Parameter:** Adjusts randomness in word selection.
 
-## Output Example
-Input: _"how do I love thee let me count the ways"_
+### Sample Output
+**Input:** _"the night is young and"_
 
-Generated Text (100 words, creativity=5):
-```
-how do i love thee let me count the ways of time and dreams through golden light
-as whispers dance where stars align the morning sings in melodies bright and clear...
+**Generated Text (100 words, creativity=5):**
+```text
+the night is young and the stars whisper in twilight's glow
+shadows dance with silent dreams where moonlight weaves and rivers flow...
 ```
 
 ## Model Saving
-- Trained weights are saved as `rnn_poem.weights.h5`.
+- The trained models' weights are stored as:
+  - `rnn_one_hot_weights.pth`
+  - `rnn_embeddings_weights.pth`
+  - `lstm_one_hot_weights.pth`
+  - `lstm_embeddings_weights.pth`
 
 ## Conclusion
-The model successfully generates poetry-like sequences. Future improvements may include:
-- Using a larger dataset.
-- Experimenting with different architectures (e.g., Transformer-based models).
-- Fine-tuning hyperparameters for better coherence.
+The experiment demonstrated how **trainable embeddings** and **LSTM layers** improve text generation. Future improvements could include:
+- Training on a larger poetry dataset.
+- Using transformer-based models like GPT for better coherence.
+- Experimenting with hyperparameter tuning.
+
+

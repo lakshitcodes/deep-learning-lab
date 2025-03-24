@@ -40,7 +40,6 @@ checkpoints/
 # Model files
 *.hdf5
 *.ckpt
-*.pth
 *.pt
 
 # IDE and editor files
